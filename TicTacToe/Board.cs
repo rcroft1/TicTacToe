@@ -12,52 +12,121 @@ namespace TicTacToe
         }
 
 
-        public int CheckWinner (string board)
+        public int CheckWinner (string[,] board)
         {
             #region Horzontal Winning Condtion
             //Winning Condition For First Row
-            if (board[1] == board[2] && board[2] == board[3])
+            if (board[0,0] == board[1,0] && board[1,0] == board[2,0])
             {
-                return 1;
+                if (board[0,0] == "O")
+                {
+                    return 'O';
+                }
+                    
+                else
+                
+                    return 'X';
+                 
             }
             //Winning Condition For Second Row
-            else if (board[4] == board[5] && board[5] == board[6])
+            else if (board[0,1] == board[1,1] && board[1,1] == board[2,1])
             {
-                return 1;
+                if (board[0,1] == "O")
+                {
+                    return 'O';
+                }
+
+                else
+
+                    return 'X';
             }
             //Winning Condition For Third Row
-            else if (board[6] == board[7] && board[7] == board[8])
+            else if (board[0,2] == board[1,2] && board[1,2] == board[2,2])
             {
-                return 1;
+                if (board[0,2] == "O")
+                {
+                    return 'O';
+                }
+
+                else
+
+                    return 'X';
             }
             #endregion
+
             #region vertical Winning Condtion
             //Winning Condition For First Column
-            else if (board[1] == board[4] && board[4] == board[7])
+            else if (board[0,0] == board[0,1] && board[0,1] == board[0,2])
             {
-                return 1;
+                if (board[0,0] == "O")
+                {
+                    return 'O';
+                }
+
+                else
+
+                    return 'X';
             }
             //Winning Condition For Second Column
-            else if (board[2] == board[5] && board[5] == board[8])
+            else if (board[1,0] == board[1,1] && board[1,1] == board[1,2])
             {
-                return 1;
+                if (board[1,0] == "O")
+                {
+                    return 'O';
+                }
+
+                else
+
+                    return 'X';
             }
             //Winning Condition For Third Column
-            else if (board[3] == board[6] && board[6] == board[9])
+            else if (board[2,0] == board[2,1] && board[2,1] == board[2,2])
             {
-                return 1;
+                if (board[2,0] == "O")
+                {
+                    return 'O';
+                }
+
+                else
+
+                    return 'X';
             }
             #endregion
             #region Diagonal Winning Condition
-            else if (board[1] == board[5] && board[5] == board[9])
+            else if (board[0,0] == board[1,1] && board[1,1] == board[2,2])
             {
-                return 1;
+                if (board[0,0] == "O")
+                {
+                    return 'O';
+                }
+
+                else
+
+                    return 'X';
             }
-            else if (board[3] == board[5] && board[5] == board[7])
+            else if (board[2,0] == board[1,1] && board[1,1] == board[2,0])
             {
-                return 1;
+                if (board[2,0] == "O")
+                {
+                    return 'O';
+                }
+
+                else
+
+                    return 'X';
             }
             #endregion
+            #region Checking For Draw
+            // If all the cells or values filled with X or O then any player has won the match
+            else if (board[0,0] != " " &&  board[1,0] != " " && board[2,0] != " " && board[0,1] != " " && board[1,1] != " " && board[2,1] != " " && board[0,2] != " " && board[1,2] != " " && board[2,2] != " ")
+            {
+                return 'T';
+            }
+            #endregion
+            else
+            {
+                return 'C';
+            }
         }
     }
 }
