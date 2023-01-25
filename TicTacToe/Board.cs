@@ -6,19 +6,33 @@ namespace TicTacToe
 {
     class Board
     {
-        public int PrintBoard (string board)
+        public int PrintBoard (string[,] board)
         {
-            
+            for (int i = 0; i < 3; i += 1)
+            {
+                //makes and populates the board
+                Console.WriteLine(" {0} | {1} | {2}", board[i,i], board[i + 1,i], board[i + 2,i]);
+                if (i < 2)
+                {
+                    Console.WriteLine("---|---|---");
+                }
+            }
         }
 
 
-        public int CheckWinner (string board)
+        public int CheckWinner (string[,] board)
         {
             #region Horzontal Winning Condtion
             //Winning Condition For First Row
-            if (board[1] == board[2] && board[2] == board[3])
+            if (board[0,0] == board[1,0] && board[1,0] == board[2,0])
             {
-                return 1;
+                if (board[0,0] == "O") {
+                    return 'O'; 
+                }
+                else {
+                    return 'X';
+                }
+                
             }
             //Winning Condition For Second Row
             else if (board[4] == board[5] && board[5] == board[6])
